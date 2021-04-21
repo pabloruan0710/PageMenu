@@ -62,10 +62,17 @@ extension CAPSPageMenu {
                 configuration.centerMenuItems = value
             case let .hideTopMenuBar(value):
                 configuration.hideTopMenuBar = value
+            case let .hideMenuIfSinglePage(hide):
+                configuration.hideMenuIfSinglePage = hide
             }
         }
         
         if configuration.hideTopMenuBar {
+            configuration.addBottomMenuHairline = false
+            configuration.menuHeight = 0.0
+        }
+        
+        if configuration.hideMenuIfSinglePage && controllerArray.count == 1 {
             configuration.addBottomMenuHairline = false
             configuration.menuHeight = 0.0
         }
