@@ -36,6 +36,7 @@ public class CAPSPageMenuConfiguration {
     open var centerMenuItems : Bool = false
     open var enableHorizontalBounce : Bool = true
     open var hideTopMenuBar : Bool = false
+    open var hideMenuIfSinglePage: Bool = false
     
     public init() {
         
