@@ -213,7 +213,9 @@ extension CAPSPageMenu {
         
         newVC.willMove(toParent: self)
         
-        newVC.view.frame = CGRect(x: self.view.frame.width * CGFloat(index), y: configuration.menuHeight, width: self.view.frame.width, height: self.view.frame.height - configuration.menuHeight)
+        newVC.view.frame = CGRect(x: view.frame.width * CGFloat(index), y: .zero,
+                                  width: view.frame.width,
+                                  height: controllerScrollView.frame.height)
         
         self.addChild(newVC)
         self.controllerScrollView.addSubview(newVC.view)

@@ -44,9 +44,9 @@
 
 ## Latest Update
 
-**1.2.8 Release (06/22/2015)**
-* Bug fixes
-* Obj-c more stable
+**1.2.9 Release (05/01/2021)**
+* Support icon left menu
+* Support Swift 5.0, XCode 12.5
 
 
 ## Description
@@ -68,6 +68,11 @@ A fully customizable and flexible paging menu controller built from other view c
 <img src="https://raw.githubusercontent.com/uacaps/ResourceRepo/master/PageMenu/PageMenuDemoSegmentedControlGif.gif" alt="PageMenuDemoSegmentedControlGif">
 <img src="https://raw.githubusercontent.com/uacaps/ResourceRepo/master/PageMenu/PageMenuDemoScreen6.png" alt="PageMenuDemoScreen6">
 
+**Similar to Instagram segmented control**
+
+<img src="https://raw.githubusercontent.com/uacaps/ResourceRepo/master/PageMenu/PageMenuDemoSegmentedControlGif.gif" alt="PageMenuDemoSegmentedControlGif">
+<img src="https://raw.githubusercontent.com/uacaps/ResourceRepo/master/PageMenu/PageMenuDemoScreen6.png" alt="PageMenu">
+
 ## Installation
 
 **CocoaPods**
@@ -76,7 +81,7 @@ PageMenu is available through [CocoaPods](http://cocoapods.org). !! Swift only !
 
 To install add the following line to your Podfile:
 
-    pod 'PageMenu'
+    pod 'PageMenu', :git => 'https://github.com/pabloruan0710/PageMenu.git', :branch => 'master'
 
 **Carthage**
 
@@ -138,41 +143,23 @@ var parameters: [CAPSPageMenuOption] = [
 ]
 
 // Initialize page menu with controller array, frame, and optional parameters
-pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
+pageMenu = CAPSPageMenu(
+      viewControllers: controllerArray, 
+      frame: CGRectMake(
+            0.0, 0.0, 
+            self.view.frame.width, 
+            self.view.frame.height
+      ),
+      icons: [
+            nil,
+            UIImage(named: "icon"),
+            nil
+      ], 
+      pageMenuOptions: parameters)
 
 // Lastly add page menu as subview of base view controller view
 // or use pageMenu controller in you view hierachy as desired
 self.view.addSubview(pageMenu!.view)
-```
-
-Objective-C
-
-```objectivec
-// Array to keep track of controllers in page menu
-NSMutableArray *controllerArray = [NSMutableArray array];
-
-// Create variables for all view controllers you want to put in the 
-// page menu, initialize them, and add each to the controller array. 
-// (Can be any UIViewController subclass)
-// Make sure the title property of all view controllers is set
-// Example:
-UIViewController *controller = [UIViewController alloc] initWithNibname:@"controllerNibnName" bundle:nil];
-controller.title = @"SAMPLE TITLE";
-[controllerArray addObject:controller];
-
-// Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-// Example:
-NSDictionary *parameters = @{CAPSPageMenuOptionMenuItemSeparatorWidth: @(4.3),
-                             CAPSPageMenuOptionUseMenuLikeSegmentedControl: @(YES),
-                             CAPSPageMenuOptionMenuItemSeparatorPercentageHeight: @(0.1)
-                             };
-
-// Initialize page menu with controller array, frame, and optional parameters
-_pageMenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray frame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height) options:parameters];
-
-// Lastly add page menu as subview of base view controller view
-// or use pageMenu controller in you view hierachy as desired
-[self.view addSubview:_pageMenu.view];
 ```
 
 **4)  Optional - Delegate Methods**
@@ -186,12 +173,6 @@ Swift
 pageMenu!.delegate = self
 ```
 
-Objective-C
-
-```objectivec
-// Optional delegate 
-_pageMenu.delegate = self;
-```
 
 
 After that you will be able to set up the following delegate methods inside of your parent view controller
@@ -202,15 +183,6 @@ Swift
 func willMoveToPage(controller: UIViewController, index: Int){}
 
 func didMoveToPage(controller: UIViewController, index: Int){}
-```
-
-Objective-C
-
-```objectivec
-// Optional delegate 
-- (void)willMoveToPage:(UIViewController *)controller index:(NSInteger)index {}
-
-- (void)didMoveToPage:(UIViewController *)controller index:(NSInteger)index {}
 ```
 
 **5)  You should now be ready to use PageMenu!! 🎉**
@@ -325,6 +297,10 @@ There are many ways you are able to customize page menu for your needs and there
 
         hideTopMenuBar (Bool)
 
+ * Space left icon for title
+
+        iconMenuSpace (CGFloat)
+
 
   * Center menu items in menu if they don't span entire width (Not currently supported for menu item width based on title)
 
@@ -368,6 +344,10 @@ Please let me know if your app in the AppStore uses this library so I can add yo
 * Swift 1.2 Support
 
 ## Update Log
+
+**1.2.9 Release (05/01/2021)**
+* fix space top on loadView
+* add suporte for icon left
 
 **1.2.7 Release (06/05/2015)**
 * CocoaPods now has current version

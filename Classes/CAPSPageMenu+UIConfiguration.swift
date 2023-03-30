@@ -87,28 +87,22 @@ extension CAPSPageMenu {
         controllerScrollView.alwaysBounceHorizontal = configuration.enableHorizontalBounce
         controllerScrollView.bounces = configuration.enableHorizontalBounce
         
-        controllerScrollView.frame = CGRect(x: 0.0, y: configuration.menuHeight, width: self.view.frame.width, height: self.view.frame.height)
-        
-        self.view.addSubview(controllerScrollView)
-        
-        let controllerScrollView_constraint_H:Array = NSLayoutConstraint.constraints(withVisualFormat: "H:|[controllerScrollView]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let controllerScrollView_constraint_V:Array = NSLayoutConstraint.constraints(withVisualFormat: "V:|[controllerScrollView]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        
-        self.view.addConstraints(controllerScrollView_constraint_H)
-        self.view.addConstraints(controllerScrollView_constraint_V)
-        
-        // Set up menu scroll view
         menuScrollView.translatesAutoresizingMaskIntoConstraints = false
         
-        menuScrollView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: configuration.menuHeight)
+        view.addSubview(controllerScrollView)
+        view.addSubview(menuScrollView)
+        NSLayoutConstraint.activate([
+            controllerScrollView.topAnchor.constraint(equalTo: menuScrollView.bottomAnchor),
+            controllerScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            controllerScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            controllerScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            menuScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            menuScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            menuScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            menuScrollView.heightAnchor.constraint(equalToConstant: configuration.menuHeight)
+        ])
         
-        self.view.addSubview(menuScrollView)
-        
-        let menuScrollView_constraint_H:Array = NSLayoutConstraint.constraints(withVisualFormat: "H:|[menuScrollView]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let menuScrollView_constraint_V:Array = NSLayoutConstraint.constraints(withVisualFormat: "V:[menuScrollView(\(configuration.menuHeight))]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        
-        self.view.addConstraints(menuScrollView_constraint_H)
-        self.view.addConstraints(menuScrollView_constraint_V)
         
         // Add hairline to menu scroll view
         if configuration.addBottomMenuHairline {

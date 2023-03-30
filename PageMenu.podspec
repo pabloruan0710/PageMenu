@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "PageMenu"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "Highly customizable paging controller"
 
   # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = 'A paging menu controller built from other view controllers allowing the user to switch between any kind of view controller.'
 
-  s.homepage     = "https://github.com/uacaps/PageMenu"
+  s.homepage     = "https://github.com/pabloruan0710/PageMenu"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -43,8 +43,8 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Niklas Fahl" => "niklas.fahl@ua.edu", "Matthew York" => "matt.york@ua.edu" }
-  # Or just: s.author    = "Matthew York"
+  s.author             = { "Niklas Fahl" => "niklas.fahl@ua.edu", "Matthew York" => "matt.york@ua.edu", "Pablo Ruan" => "pabloruan@outlook.com" }
+  # Or just: s.author    = "Matthew York,"
   # s.authors            = { "Matthew York" => "my3681@gmail.com" }
   # s.social_media_url   = "http://twitter.com/Matthew York"
 
@@ -55,11 +55,11 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  # s.platform     = :ios, "11.0"
 
   #  When using multiple platforms
-   s.ios.deployment_target = "8.1"
-   # s.osx.deployment_target = "10.7"
+   s.ios.deployment_target = "9.0"
+   # s.osx.deployment_target = "11.0"
    # s.watchos.deployment_target = "2.0"
    # s.tvos.deployment_target = "9.0"
 
@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/uacaps/PageMenu.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/pabloruan0710/PageMenu.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
