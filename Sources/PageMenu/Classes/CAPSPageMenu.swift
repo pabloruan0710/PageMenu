@@ -366,7 +366,7 @@ extension CAPSPageMenu {
           }
       }
     
-    open func moveToPage(_ index: Int) {
+    public func moveToPage(_ index: Int) {
         if index >= 0 && index < controllerArray.count {
             // Update page if changed
             if index != currentPageIndex {

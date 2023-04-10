@@ -79,7 +79,6 @@ extension CAPSPageMenu {
     }
     
     func setUpUserInterface() {
-        let viewsDictionary = ["menuScrollView":menuScrollView, "controllerScrollView":controllerScrollView]
         
         // Set up controller scroll view
         controllerScrollView.isPagingEnabled = true

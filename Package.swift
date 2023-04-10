@@ -5,16 +5,21 @@ import PackageDescription
 
 let package = Package(
     name: "PageMenu",
+    platforms: [
+        .iOS(.v11)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "PageMenu",
             targets: ["PageMenu"]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "PageMenu")
+        .target(name: "PageMenu",
+                dependencies: [],
+                path: "Sources/PageMenu/Classes",
+                exclude: [
+                    "Sources/PageMenu/ObjC"
+                ]
+        )
     ]
 )

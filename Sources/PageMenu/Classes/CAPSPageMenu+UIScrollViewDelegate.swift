@@ -76,12 +76,6 @@ extension CAPSPageMenu : UIScrollViewDelegate {
                             lastControllerScrollViewContentOffset = scrollView.contentOffset.x
                         }
                         
-                        var ratio : CGFloat = 1.0
-                        
-                        
-                        // Calculate ratio between scroll views
-                        ratio = (menuScrollView.contentSize.width - self.view.frame.width) / (controllerScrollView.contentSize.width - self.view.frame.width)
-                        
                         if menuScrollView.contentSize.width > self.view.frame.width {
                             var offset : CGPoint = menuScrollView.contentOffset
                             offset.x = self.menuItems[currentPageIndex].frame.minX-(self.view.frame.width-self.menuItemWidths[currentPageIndex])/2
@@ -126,10 +120,6 @@ extension CAPSPageMenu : UIScrollViewDelegate {
                         moveSelectionIndicator(page)
                     }
                 } else {
-                    var ratio : CGFloat = 1.0
-                    
-                    ratio = (menuScrollView.contentSize.width - self.view.frame.width) / (controllerScrollView.contentSize.width - self.view.frame.width)
-                    
                     if menuScrollView.contentSize.width > self.view.frame.width {
                         var offset : CGPoint = menuScrollView.contentOffset
                         offset.x = self.menuItems[currentPageIndex].frame.minX-(self.view.frame.width-self.menuItemWidths[currentPageIndex])/2
